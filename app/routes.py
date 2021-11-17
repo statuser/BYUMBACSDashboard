@@ -6,9 +6,10 @@ from app import app
 def index():
     return render_template("index.jinja", title="Main")
 
-@app.route('/student')
-def student():
-    return "Not Implemented"
+@app.route('/student/<name>')
+def student(name):
+    
+    return render_template("student.jinja", title="Student Page", name=name)
 
 @app.route('/career')
 def career():
