@@ -1,0 +1,2 @@
+FLASK_APP=CSDashboard
+FLASK_DEBUG=True
