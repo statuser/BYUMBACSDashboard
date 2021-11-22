@@ -1,0 +1,22 @@
+.content_block {
+
+}
+
+.circle_mask {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: calc(50% - 180px/2);
+    top: calc(50% - 180px/2);
+}
+
+.text_block {
+
+}
+
+h3 {
+
+}
+.student_details {
+
+}

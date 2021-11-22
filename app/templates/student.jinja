@@ -1,7 +1,21 @@
 {% extends "base.jinja" %}
 
 {% block content %}
-    <h2>Hello, {{ name }} </h2>
-    <p> Welcome to your profile page. </p>
+    <div id="profile_block" class = "content_block">
+        <p>Edit Icon</p>
+        <div class="profile_image">
+            <img src="{{ student.profileImage }}" class="circle_mask"/>
+        </div>
+        <div class="text_block">
+        <h3>{{ student.firstName }} {{ student.lastName }}</h3>
+        <ul class="student_details">
+            <li><span class="text_label">Class:</span> {{ student.class }} </li>
+            <li><span class="text_label">Track:</span> {{ student.track }} </li>
+            <li><span class="text_label">Mentor:</span> {{ student.mentor }} </li>
+            <li><span class="text_label">Interest:</span> {{ student.interest }} </li> 
+        </ul>
+    </div>
+
+
 
 {% endblock content %}
