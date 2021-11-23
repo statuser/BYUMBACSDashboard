@@ -15,7 +15,19 @@
 }
 
 h3 {
+    /* Sophie Rose */
 
+    position: absolute;
+    width: 218px;
+    height: 30px;
+
+    /* Heading 2 */
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height */
 }
 .student_details {
 
