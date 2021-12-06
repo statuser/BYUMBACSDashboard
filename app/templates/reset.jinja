@@ -1,0 +1,31 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+<h1> Welcome, Please Change Your Password </h1>
+
+  <head>
+    <title>Flask Intro - login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <form action="" method="post">
+        <input type="text" placeholder="Temporary Password" name="temppassword" value="{{
+          request.form.temppassword }}">
+         <input type="password" placeholder="New Password" name="newpassword" value="{{
+          request.form.newpassword }}">
+          <input type="password" placeholder="Confirm Password" name="confirmpassword" value="{{
+          request.form.confirmpassword }}">
+        <input class="btn btn-default" type="submit" value="Confirm">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+  </body>
+   
+</ul>
+{% endblock content %}
+
