@@ -64,7 +64,6 @@ def create_student():
     form = NewStudentForm()
     if form.validate_on_submit():
         # Does not Check for duplicates need to add a unique key for this.  Maybe Email?
-        student = Student(firstName=form.firstName.data,
                           lastName=form.lastName.data,
                           classYear=form.classYear.data,
                           track=form.track.data,
