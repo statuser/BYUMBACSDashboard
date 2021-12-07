@@ -2,10 +2,13 @@ from os import name
 from flask import render_template, flash, redirect, url_for, request
 from werkzeug.urls import url_parse
 from flask_login import current_user, login_user, logout_user
-from flask_login.utils import login_required
 from app import app
-from app.forms import LoginForm
 from app.models import User
+from app.forms import LoginForm
+
+
+
+
 
 @app.route('/')
 @app.route('/index')
@@ -30,21 +33,61 @@ def login():
         return redirect(url_for('student'))
     return render_template('login.jinja', title='Sign In', form=form)
 
-
 @app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('login'))
 
 
-@app.route('/student/')
-@app.route('/student/<name>')
+@app.route('/student/<studentID>')
 @login_required
-def student(name=None):
-    if name is None:
+def student(name):
+    # Load the student data from the database
+    # student = load student from database
+    student = {
+        'firstName' : 'Sophie',
+        'lastName' : 'Rose',
+        'class' : '2022',
+        'track' : 'Marketing',
+        'mentor' : 'Jon Kent',
+        'interest' : 'Tech',
+        'profileImage' : 'https://source.unsplash.com/Av_NirIguEc/600x600'
+    
         name = current_user.username
-    return render_template("student.jinja", title="Student Page", name=name)
+    return render_template("student.jinja", title="Student Page", student=student)
 
+#Team Garam code for login page
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('home'))
+    return render_template('login.jinja', error=error)
+
+@app.route('/forgotpassword', methods=['GET', 'POST'])
+def forgotpassword():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('home'))
+    return render_template('forgotpassword.jinja', error=error)
+
+@app.route('/reset', methods=['GET', 'POST'])
+def reset():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('home'))
+    return render_template('reset.jinja', error=error)
+
+    #team garam  page
 
 @app.route('/career')
 @login_required
