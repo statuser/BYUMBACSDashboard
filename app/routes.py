@@ -1,7 +1,7 @@
 from os import name
 from flask import render_template, flash, redirect, url_for, request
 from werkzeug.urls import url_parse
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, login_user, logout_user, login_required
 from app import app
 from app.models import User
 from app.forms import LoginForm
@@ -52,20 +52,8 @@ def student(name):
         'mentor' : 'Jon Kent',
         'interest' : 'Tech',
         'profileImage' : 'https://source.unsplash.com/Av_NirIguEc/600x600'
-    
-        name = current_user.username
+    }
     return render_template("student.jinja", title="Student Page", student=student)
-
-#Team Garam code for login page
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    error = None
-    if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-            error = 'Invalid Credentials. Please try again.'
-        else:
-            return redirect(url_for('home'))
-    return render_template('login.jinja', error=error)
 
 @app.route('/forgotpassword', methods=['GET', 'POST'])
 def forgotpassword():

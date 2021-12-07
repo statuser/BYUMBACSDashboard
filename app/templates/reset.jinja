@@ -2,14 +2,7 @@
 
 {% block content %}
 <h1> Welcome, Please Change Your Password </h1>
-
-  <head>
-    <title>Flask Intro - login page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
-  </head>
-  <body>
-    <div class="container">
+     <div class="container">
       <br>
       <form action="" method="post">
         <input type="text" placeholder="Temporary Password" name="temppassword" value="{{
@@ -24,8 +17,5 @@
         <p class="error"><strong>Error:</strong> {{ error }}
       {% endif %}
     </div>
-  </body>
-   
-</ul>
 {% endblock content %}
 
