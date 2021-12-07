@@ -1,19 +1,17 @@
 {% extends "base.jinja" %}
+{% from "bootstrap/form.html" import render_form %}
 
 {% block content %}
-    <div class="container">
-      <br>
-      <form action="" method="post">
-        <input type="text" placeholder="Username" name="username" value="{{
-          request.form.username }}">
-         <input type="password" placeholder="Password" name="password" value="{{
-          request.form.password }}">
-        <input class="btn btn-default" type="submit" value="Login">
-      </form>
-        <a href="{{ url_for('forgotpassword') }}"> Forgot Password </a>
-      {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}
-      {% endif %}
-    </div>
+  <h1> Please Login </h1>
+      <div class = "row">
+        <div class="col col-md-4 align-self-center">
+          {{ render_form(form) }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-md-4 align-self-center">
+          <a href="{{ url_for('forgotpassword') }}"> Forgot Password </a>
+        </div>
+      </div>
 {% endblock content %}
 
