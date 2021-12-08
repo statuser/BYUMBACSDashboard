@@ -20,6 +20,13 @@
                 {% endfor %}
             </tr>
             <tr>
+                <td>{{ form.email.label }}:</td>
+                <td>{{ form.email(size=32) }}</td>
+                {% if form.email.errors %}
+                <span style="color: red;">{{form["email"].label}}:{{error}}</span>
+                {% endif %}
+            </tr>
+            <tr>
                 <td>{{ form.classYear.label }}:</td>
                 <td>{{form.classYear(size=4) }}</td>
                 {% for error in errors %}
@@ -55,7 +62,172 @@
                 {% endfor %}
             </tr>
         </table>
+
+        <button>Conintue</button>
+
+        <!----------------------------------- Start LinkedIn Block --------------------------------------------->
+        <div class="question_block" id="yn_linkedIn">
+            <div class="yn_block">
+                <div class = "question_title"><h3>{{ form.yn_linkedIn.label }}</h3></div>
+                {% for subfield in form.yn_linkedIn %}
+                <div class="yn_question">
+                    {{ subfield }}
+                    {{ subfield.label }}
+                </div>
+                {% endfor %}
+            </div>
+            <button>Continue</button>
+        </div>
+
+        <!--Display if Yes-->
+        <div class="question_block" id="url_linkedIn">
+            <div class="question">
+                {{ form.linkedIn.label }}:
+                {{ form.linkedIn(size=32) }}
+            </div>
+            <button>Continue</button>
+        </div>
+        <!-------------------------------------- End LinkedIn Block -------------------------------------------->
+
+        <!----------------------------------- Start Consider Self Block --------------------------------------------->
+        <div class="question_block" id="consider_self">
+            <div class = "question_title"><h3>{{ form.considerSelf.label }}</h3></div>
+            <div class="question">
+                {% for subfield in form.considerSelf %}
+                    <div class="multiple_choice_option">
+                        {{ subfield }}
+                        {{ subfield.label }}
+                    </div>
+                {% endfor %}
+            </div>
+            <button>Continue</button>
+        </div>
+        <!-------------------------------------- End Consider Self Block -------------------------------------------->
+
+        <!----------------------------------- Start Recent Employer Block --------------------------------------------->
+        <div class="question_block" id="recent_employer">
+            <div class="question_title"><h3>Most Recent Employer Info</h3></div>
+
+            <div class="question">
+                {{ form.industry_old.label }}
+                {{ form.industry_old(size=32) }}
+            </div>
+
+            <div class="question">
+                {{ form.company_old.label }}:
+                {{ form.company_old(size=32) }}
+            </div>
+
+            <div class="question">
+                {{ form.title_old.label }}:
+                {{ form.title_old(size=32) }}
+            </div>
+
+            <div class="question">
+                {{ form.compensation.label }}
+                {{ form.compensation(size=32) }}
+            </div>
+
+            <button>Continue</button>
+        </div>
+        <!-------------------------------------- End Recent Employer Block -------------------------------------------->
+
+        <!----------------------------------- Start Futuer Career Block --------------------------------------------->
+        <div class="question_block" id="future_career">
+            <div class="question_title"><h3>Prospective Future Career</h3></div>
+
+            <div class="question">
+                {{ form.industry_future.label }}:
+                {{ form.industry_future(size=32) }}
+            </div>
+
+            <div class="question">
+                {{ form.company_future.label }}:
+                {{ form.company_future(size=32) }}
+            </div>
+
+            <div class="question">
+                {{ form.title_future.label }}:
+                {{ form.title_future(size=32) }}
+            </div>
+
+            <button>Continue</button>
+        </div>
+        <!-------------------------------------- End Futuer Career Block -------------------------------------------->
+
+        <!----------------------------------- Start Past Education Block --------------------------------------------->
+        <div class="question_block" id="past_education">
+            <div class="question_title"><h3>Please verify your past education details:</h3></div>
+
+            <div class="question">
+                {{ form.institution.label }}:
+                {{ form.institution(size=32) }}
+            </div>
+
+            <div class="question">
+                {{ form.degree_level.label }}
+                {{ form.degree_level }}
+            </div>
+
+            <div class="question">
+                {{ form.skills.label }}
+                {{ form.skills(size=32) }}
+            </div>
+
+            <button>Continue</button>
+        </div>
+        <!-------------------------------------- End Past Education Block -------------------------------------------->
+
+
+        <!----------------------------------- Start Attitude Block --------------------------------------------->
+        <div class="question_block" id="attitude">
+            <div class = "question_title"><h3>{{ form.attitude.label }}</h3></div>
+            <div class="question">
+                {% for subfield in form.attitude %}
+                    <div class="multiple_choice_option">
+                        {{ subfield }}
+                        {{ subfield.label }}
+                    </div>
+                {% endfor %}
+            </div>
+            <button>Continue</button>
+        </div>
+        <!-------------------------------------- End Attitude Block -------------------------------------------->
+
+
+        <!----------------------------------- Start LAMP LIST Block --------------------------------------------->
+        <div class="question_block" id="lamp_list">
+            <div class="question_title"><h3>Prospective Future Career</h3></div>
+
+            <div class="question">
+                {{ form.lamp.label }}
+                {{ form.lamp(size=32) }}
+            </div>
+
+            <button>Continue</button>
+        </div>
+        <!-------------------------------------- End LAMP Block -------------------------------------------->
+
+
+        <!----------------------------------- Start Resume Block --------------------------------------------->
+        <div class="question_block" id="resume_upload">
+            <div class="question_title"><h3>Resume Upload</h3></div>
+
+            <div class="file_upload">
+                {{ form.resume.label }}
+                <br>
+                {{ form.resume }}
+            </div>
+
+        </div>
+        <!-------------------------------------- End Resume Block -------------------------------------------->
+
+
+        <div class="messaging form_submitted">
+            <h2
+        </div>
         <p>
             {{ form.submit() }}
         </p>
+        </form>
 {% endblock content %}  

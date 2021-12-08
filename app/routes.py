@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from app import app, db
-from app.forms import NewStudentForm
+from app.forms import NewStudentForm, WeeklyReportForm
 from app.models import Student
 
 @app.route('/')
@@ -34,8 +34,20 @@ def create_student():
                           track=form.track.data,
                           mentor=form.mentor.data,
                           interest=form.interest.data,
-                          profileImage=form.profileImage.data)
+                          profileImage=form.profileImage.data,
+                          email=form.email.data)
         db.session.add(student)
         db.session.commit()
         return redirect(url_for('index'))
     return render_template('newStudent.jinja', title='New Student', form=form)
+
+@app.route('/weekly_report', methods=['GET', 'POST'])
+def weekly_report():
+    form = WeeklyReportForm()
+    if form.validate_on_submit():
+        # Does not Check for duplicates need to add a unique key for this.  Maybe Email?
+        #student = Student()
+        #db.session.add(student)
+        #db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('weeklyReport.jinja', title='Weekly Report', form=form)

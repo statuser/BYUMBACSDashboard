@@ -1,0 +1,176 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+    <h1>Weekly KPI Reporting</h1>
+    <form action="" method="post" novalidate>
+
+        <div class="question_block" id="feeling">
+            <div class="yn_block">{{ form.feeling.label }}
+            {% for subfield in form.feeling %}
+                <div class="yn_question">{{ subfield }}
+                {{ subfield.label }}</div>
+            {% endfor %}</div>
+            <button>Continue</button>
+        </div>
+
+
+
+        <div class="question_block" id="yn_apply">
+            <div class="yn_block">{{ form.yn_apply.label }}
+            {% for subfield in form.yn_apply %}
+                <div class="yn_question">{{ subfield }}
+                {{ subfield.label }}</div>
+            {% endfor %}</div>
+            <button>Continue</button>
+        </div>
+        <!--Display if Yes-->
+        <div class="question_block" id="apply">
+            {{ form.int_apply.label }}:
+            {{ form.int_apply(size=32) }}
+            {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <br>
+
+            {{ form.apply_company.label }}:
+            {{ form.apply_company(size=32) }}
+            {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <button>Continue</button>
+        </div>
+        
+
+
+        <div class="question_block" id="yn_info">
+            <div class="yn_block">{{ form.yn_info.label }}
+            {% for subfield in form.yn_info %}
+                <div class="yn_question">{{ subfield }}
+                {{ subfield.label }}</div>
+            {% endfor %}</div>
+            <button>Continue</button>
+        </div>
+        <!--Display if Yes-->
+        <div class="question_block" id="yn_info">
+            {{ form.int_info.label }}:
+            {{ form.int_info(size=32) }}
+            {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <br>
+
+            {{ form.info_company.label }}:
+            {{ form.info_company(size=32) }}
+            {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <button>Continue</button>
+        </div>
+        
+
+
+        <div class="question_block" id="yn_real">
+            <div class="yn_block">{{ form.yn_real.label }}
+            {% for subfield in form.yn_real %}
+                <div class="yn_question">{{ subfield }}
+                {{ subfield.label }}</div>
+            {% endfor %}</div>
+            <button>Continue</button>
+        </div>
+        <!--Display if Yes-->
+        <div class="question_block" id="real">
+            {{ form.int_real.label }}:
+            {{ form.int_real(size=32) }}
+            {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <br>
+
+            {{ form.real_company.label }}:
+            {{ form.real_company(size=32) }}
+            {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <button>Continue</button>
+        </div>
+        
+
+
+        <div class="question_block" id="yn_info_session">
+            <div class="yn_block">{{ form.yn_info_session.label }}
+            {% for subfield in form.yn_info_session %}
+                <div class="yn_question">{{ subfield }}
+                {{ subfield.label }}</div>
+            {% endfor %}</div>
+            <button>Continue</button>
+        </div>
+        <!--Display if Yes-->
+        <div class="question_block" id="info_session">
+            {{ form.int_info_session.label }}:
+            {{ form.int_info_session(size=32) }}
+            {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <br>
+
+            {{ form.info_session_company.label }}:
+            {{ form.info_session_company(size=32) }}
+            {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <button>Continue</button>
+        </div>
+        
+
+
+        <div class="question_block" id="yn_offers">
+            <div class="yn_block">{{ form.yn_offers.label }}
+            {% for subfield in form.yn_offers %}
+                <div class="yn_question">{{ subfield }}
+                {{ subfield.label }}</div>
+            {% endfor %}</div>
+            <button>Continue</button>
+        </div>
+        <!--Display if Yes-->
+        <div class="question_block" id="offers">
+            {{ form.offer_company.label }}:
+            {{ form.offer_company(size=32) }}
+            {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <button>Continue</button>
+        </div>
+        
+
+
+        <div class="question_block" id="yn_feedback">
+            <div class="yn_block">{{ form.yn_feedback.label }}
+            {% for subfield in form.yn_feedback %}
+                <div class="yn_question">{{ subfield }}
+                {{ subfield.label }}</div>
+            {% endfor %}
+            <button>Continue</button></div>
+        </div>
+        <!--Display if Yes-->
+        <div class="question_block" id="feedback">
+            {{ form.feedback.label }}:
+            {{ form.feedback(size=32) }}
+            {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+
+        <p>
+            {{ form.submit() }}
+        </p>
+    </form>
+{% endblock content %}  

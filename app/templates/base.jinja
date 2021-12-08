@@ -16,7 +16,15 @@
 
 <body>
 
-    <h1>Navblock Here</h1>
+    <a href="{{ url_for('index') }}"><h1>Navblock Here</h1></a>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('student') }}">Student Dashboard</a></li>
+        <li><a href="{{ url_for('career') }}">Career Services Dashboard</a></li>
+        <li><a href="{{ url_for("create_student") }}">New Student Form</a></li>
+        <li><a href="{{ url_for("weekly_report") }}">Report KPI (Weekly Report)</a></li>
+      </ul>
+    </nav>
 
     {% block content %}
   
