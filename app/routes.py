@@ -81,4 +81,4 @@ def reset():
 @app.route('/career')
 @login_required
 def career():
-    return "Not Implemented"
+    return render_template('careerServices.jinja')
