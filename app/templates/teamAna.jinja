@@ -1,0 +1,256 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>    
+
+
+{% extends "base.jinja" %}
+
+{% block content %}   
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="teamAna">Home</a>                
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+                <i class="fa fa-bell" Style= "font-size: 25px"></i>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- Close button
+                        <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                        <h4 class="modal-title">What would you like to do?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p style="text-align:center"><a href="profileEdit" style="color: Blue; font-size:15px">Edit</a></p>
+                        <p style="text-align:center"><a href="teamAna" style="color: Red">Delete</a></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        
+    </div>
+    
+
+    <div class="container">
+        <div class="row">            
+            <div class="col order-first"> </div>            
+            
+            <div class="col-sm-5"> 
+                               
+                <div style="text-align: right">
+                        <a data-toggle="modal" href="#myModal" class="fa" style="text-decoration: none;color: black; right:0px;">&#xf040;</a>
+                </div>
+
+                <p style="text-align: center"> <img src="https://slc.byu.edu/sites/saltlakecenter.ce.byu.edu/files/current_students.png" class="img-circle" alt="Student" 
+                style="width:200px; height:200px;">               
+                </p>
+
+
+                    <div class="mb-3">
+                        <p><b> Nathan Saguibo </b></p>
+                        <p>Class: 2023</p>
+                        <p>Track: Marketing</p>
+                        <p>Mentor: Jon Kent</p>
+                        <p>Interest: Tech</p>
+                        
+                    </div>                               
+            </div>
+
+            <div class="col order-last"> </div>          
+        </div>
+        
+        <div class="row">            
+            <div class="col order-first"> </div>            
+            
+            <div class="col-sm-5">
+                <div class="mb-3">
+                     <p style ="display: flex; justify-content: space-between; padding-top: 50px">
+                        <b style="text-align:left">Comparison</b>
+                        <span style="font-size: 20px">&#8942;</span>                   
+                    </p>
+                    
+                    <form>
+                        <label for="comparisons">2 </label>
+                        <select name="comparisons" id="comparisons" style = "border:none">
+                            <option value="Interviews">Interviews</option>
+                            <option value="Offers Accepted">Offers Accepted</option>                            
+                        </select>
+                        <br><br>                        
+                    </form> 
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">Me</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">Track</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                        <label class="form-check-label" for="inlineRadio3">MBA </label>
+                    </div> 
+                    
+                                                       
+                                        
+                </div>
+                <div class="mb-3">
+                <br></br>
+                    <svg viewBox="0 0 500 100" class="chart">
+  
+                    <polyline
+                        fill="none"
+                        stroke="#0074d9"
+                        stroke-width="2"
+                        points="
+                        00,120
+                        20,60
+                        40,80
+                        60,20
+                        80,80
+                        100,80
+                        120,60
+                        140,100
+                        160,90
+                        180,80
+                        200, 110
+                        220, 10
+                        240, 70
+                        260, 100
+                        280, 100
+                        300, 40
+                        320, 0
+                        340, 100
+                        360, 100
+                        380, 120
+                        400, 60
+                        420, 70
+                        440, 80
+                        "
+                    />
+                                        
+                    </svg>
+                </div>
+
+                <button type="button" class="btn btn-outline-primary" style="background: #1BC1AC">Week</button>
+                <button type="button" class="btn btn-outline-secondary">Month</button>
+                <button type="button" class="btn btn-outline-success">Fall</button>
+
+
+            </div>
+
+            <div class="col order-last"> </div>          
+        </div>
+
+        <div class="row">            
+            <div class="col order-first"> </div>            
+            
+            <div class="col-sm-5">
+                <div class="mb-3">
+                    <p style ="display: flex; justify-content: space-between; padding-top: 60px">
+                        <b style="text-align:left">Conversion Rates</b>
+                        <span style="font-size: 20px">&#8942;</span>                   
+                    </p>
+                </div>
+
+                <p> Personalized Conversion Formula </p>
+                <b> A = Formula * Here </b> <br></br>
+                
+                <style>
+                        ul { 
+                            position: relative; 
+                            overflow: hidden; 
+                            font: 14px Arial; 
+                            margin: 0; padding: 0; 
+                            list-style: none; 
+                            text-align: center; 
+                        }
+
+
+                        ul:before { 
+                            content: "";
+                            position: absolute;
+                            z-index: -1;
+                            left: 50%;
+                            margin-left: -120px;
+                            width: 0;
+                            border-top: 800px solid #D1F3EF;
+                            border-left: 120px solid #fff;
+                            border-right: 120px solid #fff;
+                        }
+
+                        li:after {
+                                content: "";
+                                display: block;
+                                height: 0.4em;
+                                background: #fff;
+                                width: 100%;
+                                }
+                       <!-- li:before { border-top: 1px dotted #ccc }-->
+                        li:first-child:before { border: 0; }
+                </style>
+
+                <ul>
+                    <li style="text-align:center"><br>12</br> Applications</li>
+                    <li style="text-align:center"><br>3</br> Mock Interviews</li>
+                    <li style="text-align:center"><br>18</br> Interviews</li>
+                    <li style="text-align:center"><br>0</br> Offers</li>
+                </ul>
+
+                <br></br>
+
+                <button type="button" class="btn btn-outline-primary" style="background: #1BC1AC">Week</button>
+                <button type="button" class="btn btn-outline-secondary">Month</button>
+                <button type="button" class="btn btn-outline-success">Fall</button>
+            </div>
+
+            <div class="col order-last"> </div>          
+        </div>
+
+        <div class="row">            
+            <div class="col order-first"> </div>            
+            
+            <div class="col-sm-5">
+                <div class="mb-3">
+                    <p style ="display: flex; justify-content: space-between; padding-top: 60px">
+                        <b style="text-align:left">Career Progress</b>
+                        <span style="font-size: 20px">&#8942;</span>                   
+                    </p>
+                </div>
+
+                <p> Company </p>
+                <br></br>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Apple</li>
+                    <li class="list-group-item">Adobe</li>
+                    <li class="list-group-item">Amazon</li>
+                    <li class="list-group-item">Dell</li>
+                    <li class="list-group-item">BYU</li>
+                </ul>             
+                
+            </div>
+
+            <div class="col order-last"> </div>          
+        </div>
+
+    </div>
+    
+
+{% endblock content %}

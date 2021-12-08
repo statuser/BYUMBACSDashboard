@@ -12,11 +12,30 @@
 
   <link rel="stylesheet" href="{{ url_for('static', filename='student.css') }}">
   <!-- Place favicon.ico in the root directory -->
+
+<style>
+div.a {
+  text-align: center;
+}
+
+div.b {
+  text-align: left;
+}
+
+div.c {
+  text-align: right;
+} 
+
+div.d {
+  text-align: justify;
+} 
+</style>
+
 </head>
 
 <body>
 
-    <h1>Navblock Here</h1>
+    
 
     {% block content %}
   

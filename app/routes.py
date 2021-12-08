@@ -39,3 +39,11 @@ def create_student():
         db.session.commit()
         return redirect(url_for('index'))
     return render_template('newStudent.jinja', title='New Student', form=form)
+
+@app.route('/teamAna')
+def teamAna():
+    return render_template("teamAna.jinja", title="Main")
+
+@app.route('/profileEdit')
+def profileEdit():
+    return render_template("profileEdit.jinja", title="Main")
