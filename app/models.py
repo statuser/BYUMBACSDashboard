@@ -30,15 +30,15 @@ def load_user(id):
 
 class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    firstName = db.Column(db.String(128))
+    firstName = db.Column(db.String(32), index=True, nullable=False)
     middleName = db.Column(db.String(128))
     lastName = db.Column(db.String(128))
     studentEmail = db.Column(db.String(128))
     phone = db.Column(db.String(16))
-    classYear = db.Column(db.String(4))
+    classYear = db.Column(db.Integer)
     linkedIn = db.Column(db.String(128))
     intent = db.Column(db.String(128))
-    attitude = db.Column(db.String(128))
+    track = db.Column(db.String(32), index=True)
     photo = db.Column(db.LargeBinary)
     lastUpdate = db.Column(db.DateTime)
     jobStatus = db.Column(db.String(64))
