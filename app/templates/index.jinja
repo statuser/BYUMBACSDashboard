@@ -2,10 +2,11 @@
 
 {% block content %}
 <ul>
-    <li><a href="{{ url_for('student') }}">Student Dashboard</a></li>
+    <li><a href="{{ url_for('teamAna') }}">Student Dashboard</a></li>
+    <li><a href="{{ url_for('profileEdit') }}">Edit Student Profile</a></li>
     <li><a href="{{ url_for('career') }}">Career Services Dashboard</a></li>
-    <li><a href="{{ url_for("create_student") }}">New Student Form</a></li>
-    <li><a href="{{ url_for("weekly_report") }}">Report KPI (Weekly Report)</a></li>
+    <li><a href="{{ url_for('create_student') }}">New Student Form</a></li>
+    <li><a href="{{ url_for('weekly_report') }}">Report KPI (Weekly Report)</a></li>
     <li><a href="{{ url_for('reset') }}">Reset Password Page </a></li>
 
 
