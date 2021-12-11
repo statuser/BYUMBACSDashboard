@@ -105,3 +105,11 @@ def weekly_report():
         #db.session.commit()
         return redirect(url_for('index'))
     return render_template('weeklyReport.jinja', title='Weekly Report', form=form)
+	
+@app.route('/teamAna')
+def teamAna():
+    return render_template("teamAna.jinja", title="Main")
+
+@app.route('/profileEdit')
+def profileEdit():
+    return render_template("profileEdit.jinja", title="Main")
