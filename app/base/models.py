@@ -1,7 +1,8 @@
+from flask_login.login_manager import LoginManager
 from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from app import db, login
+from app import db, login_manager
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -24,7 +25,7 @@ class Roles(db.Model):
     name = db.Column(db.String(15), index=True, unique=True)
     role_members = db.relationship("User", backref="role", lazy=True)
     
-@login.user_loader
+@login_manager.user_loader
 def load_user(id):
     return User.query.get(int(id))
 

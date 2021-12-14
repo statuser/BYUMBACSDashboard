@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="{{ url_for('index') }}">Everest Tracker</a>
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="{{ url_for('base.index') }}">Everest Tracker</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" 
         data-toggle="collapse" data-target="#sidebarmenu" aria-controls="sidebarMenu"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -7,8 +7,8 @@
     </button>
     <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         {% if current_user.is_anonymous %}
-            {{ render_nav_item('login', "Login") }}
+            {{ render_nav_item('util.login', "Login") }}
         {% else %}
-            {{ render_nav_item('logout', "Logout") }}
+            {{ render_nav_item('util.logout', "Logout") }}
         {% endif %}
 </nav>

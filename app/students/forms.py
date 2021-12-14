@@ -1,15 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, RadioField, SelectField, \
+from wtforms import StringField, RadioField, SelectField, \
     FileField, IntegerField, SubmitField
 from wtforms.validators import DataRequired, Email, NumberRange
 
-class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Sign In')
-
-
-class NewStudentForm(FlaskForm):
+class IntakeSurvey(FlaskForm):
     firstName = StringField('First Name', validators=[DataRequired()])
     lastName = StringField('Last Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
@@ -81,7 +75,7 @@ class NewStudentForm(FlaskForm):
 
 
 
-class WeeklyReportForm(FlaskForm):
+class KPIForm(FlaskForm):
     feeling = RadioField("Before we jump in... How are you FEELING about recruting? 1 - HELP! 6 - I've got this! ",choices=[1,2,3,4,5,6],validators=[DataRequired()])
 
     #-----------------------------------------------------------------------

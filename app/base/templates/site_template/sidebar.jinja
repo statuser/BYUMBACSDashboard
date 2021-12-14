@@ -2,24 +2,37 @@
     <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active href="{# {{ url_for('endpoint1') }} #}">
+                <a class="nav-link active" href="{{ url_for('students.dashboard') }}">
                     <span data-feather="bar-chart-2"></span>
-                    End Point 1
+                    Student Dashboard
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active href="{# {{ url_for('endpoint2') }} #}">
+                <a class="nav-link active" href="{{ url_for('students.edit_profile') }}">
                     <span data-feather="file"></span>
-                    End Point 2
+                    Edit Student Profile
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active href="{# {{ url_for('endpoint3') }} #}">
-                    <span data-feather="shopping-cart"></span>
-                    End Point 3
+                <a class="nav-link active" href="{{ url_for('career_services.dashboard') }}">
+                    <span data-feather="aperture"></span>
+                    Career Services Dashboard
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('students.intake_survey') }}">
+                    <span data-feather="plus"></span>
+                    New Student Form
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('students.kpi_reporting') }}">
+                    <span data-feather="bookmark"></span>
+                    Report KPI (Weekly Report)
+                </a>
+            </li>
+            
         </ul>
         
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -32,25 +45,25 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">
                 <span data-feather="file-text"></span>
-                Current month
+                Placeholder 1
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
                 <span data-feather="file-text"></span>
-                Last quarter
+                Placeholder 1
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
                 <span data-feather="file-text"></span>
-                Social engagement
+                Placeholder 1
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
                 <span data-feather="file-text"></span>
-                Year-end sale
+                Placeholder 1
                 </a>
             </li>
         </ul>
