@@ -27,18 +27,6 @@ def register_blueprints(app):
     for module_name in ('base', 'career_services', 'students', 'util'):
         module = import_module(f'app.{module_name}.routes')
         app.register_blueprint(module.blueprint)
-    
-    # from app.career_services import blueprint as cs_bp
-    # app.register_blueprint(cs_bp)
-    
-    # from app.students import blueprint as student_bp
-    # app.register_blueprint(student_bp)
-    
-    # from app.base import blueprint as bp
-    # app.register_blueprint(bp)
-    
-    # from app.util import blueprint as util_bp
-    # app.register_blueprint(util_bp)
 
 
 def configure_database(app):
