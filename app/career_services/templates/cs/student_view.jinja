@@ -1,4 +1,4 @@
-{% extends 'site_template/base_sidebar.jinja' %}
+{% extends 'site_template/base_plain.jinja' %}
 
 {% block styles %}
     {{ super() }}
@@ -7,7 +7,6 @@
 {% endblock styles %}
 
 {% block content %}
-<main>
     <aside id="left-content" class="aside">
         <div>
             <h1>Student List</h1>
@@ -144,5 +143,4 @@
                     </div>
                 </div>
             </ul>
-    </main>
 {% endblock content %}

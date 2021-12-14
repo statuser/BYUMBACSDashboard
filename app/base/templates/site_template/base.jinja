@@ -1,0 +1,44 @@
+{% from 'bootstrap/nav.html' import render_nav_item %}
+{% from 'bootstrap/utils.html' import render_messages %}
+
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    {% block head %}
+        {% block meta %}
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta charset="utf-8">
+            <meta name="description" content="">
+            <meta http-equiv="x-ua-compatible" content="ie=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="manifest" href="site.webmanifest">
+            <link rel="apple-touch-icon" href="icon.png">
+            <!-- Place favicon.ico in the root directory -->
+        {% endblock %}
+        <title>Career Services Dashboard | {% block title %}{% endblock %}</title>
+
+        {% block styles %}
+		    <!-- Bootstrap CSS -->
+		    {{ bootstrap.load_css() }}
+            <!-- Custom Theming -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
+	    {% endblock %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+        
+    {% endblock %}
+    {% block scripts %}
+        {{ bootstrap.load_js() }}
+        <!-- Feather Icons from CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+        <script>
+            feather.replace()
+        </script>
+    {% endblock %}
+</body>
+
+</html>

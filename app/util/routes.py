@@ -28,7 +28,7 @@ def login():
 @blueprint.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('base.login'))
+    return redirect(url_for('util.login'))
 
 @blueprint.route('/forgotpassword', methods=['GET', 'POST'])
 def forgotpassword():

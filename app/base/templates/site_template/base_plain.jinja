@@ -1,0 +1,27 @@
+{% extends "site_template/base.jinja" %}
+
+{% block body %}
+    {% block top_navigation %}
+        {% include "site_template/navbar.jinja" %}
+    {% endblock %}
+    
+    <div class="container-fluid">
+        <div class="row">
+    
+            {% block messages %}
+                {{ render_messages() }}
+            {% endblock %}
+        </div>
+        
+        <main role="main" class="row flex-fill justify-content-center">
+            {% block content %}
+            {% endblock content %}
+        </main>
+    
+        <footer role="footer" class="row flex-fill bg-dark">
+            {% block footer %}
+                {% include "site_template/footer.jinja" %}
+            {% endblock %}
+        </footer>
+    </div>
+{% endblock %}
