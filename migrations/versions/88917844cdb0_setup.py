@@ -1,8 +1,8 @@
-"""Set Up Initial Databases
+"""Setup
 
-Revision ID: 8bd8fd1497bb
-Revises: a51dd5f8ea2f
-Create Date: 2021-11-26 13:58:50.291113
+Revision ID: 88917844cdb0
+Revises: 
+Create Date: 2021-12-14 16:58:33.275228
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '8bd8fd1497bb'
-down_revision = 'a51dd5f8ea2f'
+revision = '88917844cdb0'
+down_revision = None
 branch_labels = None
 depends_on = None
 
@@ -31,6 +31,14 @@ def upgrade():
     sa.Column('relationship', sa.String(length=128), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_table('roles',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('name', sa.String(length=15), nullable=True),
+    sa.PrimaryKeyConstraint('id')
+    )
+    with op.batch_alter_table('roles', schema=None) as batch_op:
+        batch_op.create_index(batch_op.f('ix_roles_name'), ['name'], unique=True)
+
     op.create_table('advocate',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('companyId', sa.Integer(), nullable=False),
@@ -45,6 +53,19 @@ def upgrade():
     sa.ForeignKeyConstraint(['companyId'], ['company.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_table('user',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('username', sa.String(length=64), nullable=False),
+    sa.Column('email', sa.String(length=120), nullable=True),
+    sa.Column('password_hash', sa.String(length=128), nullable=True),
+    sa.Column('role_id', sa.Integer(), nullable=True),
+    sa.ForeignKeyConstraint(['role_id'], ['roles.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
+    with op.batch_alter_table('user', schema=None) as batch_op:
+        batch_op.create_index(batch_op.f('ix_user_email'), ['email'], unique=True)
+        batch_op.create_index(batch_op.f('ix_user_username'), ['username'], unique=True)
+
     op.create_table('company_note',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('companyId', sa.Integer(), nullable=False),
@@ -205,6 +226,15 @@ def downgrade():
     op.drop_table('education')
     op.drop_table('student')
     op.drop_table('company_note')
+    with op.batch_alter_table('user', schema=None) as batch_op:
+        batch_op.drop_index(batch_op.f('ix_user_username'))
+        batch_op.drop_index(batch_op.f('ix_user_email'))
+
+    op.drop_table('user')
     op.drop_table('advocate')
+    with op.batch_alter_table('roles', schema=None) as batch_op:
+        batch_op.drop_index(batch_op.f('ix_roles_name'))
+
+    op.drop_table('roles')
     op.drop_table('company')
     # ### end Alembic commands ###

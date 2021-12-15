@@ -1,4 +1,5 @@
 from flask import render_template, flash, redirect, url_for, request
+from flask_login.utils import login_required
 from werkzeug.urls import url_parse
 from flask_login import current_user, login_user, logout_user
 
@@ -41,7 +42,7 @@ def forgotpassword():
             send_password_reset_email(user)
         flash('Check your email for the instrucitons to reset your password.')
         return redirect(url_for('util.login'))
-    return render_template('forgotpassword.jinja', form=form)
+    return render_template('forgot_password.jinja', form=form)
 
 @blueprint.route('/reset_password/<token>', methods=['GET', 'POST'])
 def reset_password(token):
@@ -57,3 +58,15 @@ def reset_password(token):
         flash('Your password has been reset.')
         return redirect(url_for('util.login'))
     return render_template('reset_password.jinja', form=form)
+
+@blueprint.route('/change_password', methods=['GET', 'POST'])
+@login_required
+def change_password():
+    form = ResetPasswordForm()
+    if form.validate_on_submit():
+        current_user.set_password(form.password.data)
+        db.session.commit()
+        flash('Your password has been changed.')
+        return redirect(url_for('base.index'))
+    return render_template('reset_password.jinja', form=form)
+    
