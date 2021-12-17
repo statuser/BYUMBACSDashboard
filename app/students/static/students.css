@@ -1,0 +1,40 @@
+#conversion_funnel { 
+    position: relative; 
+    overflow: hidden; 
+    font: 14px Arial; 
+    margin: 0; padding: 0; 
+    list-style: none; 
+    text-align: center; 
+}
+
+
+#conversion_funnel:before { 
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    margin-left: -120px;
+    width: 0;
+    border-top: 800px solid #D1F3EF;
+    border-left: 120px solid #fff;
+    border-right: 120px solid #fff;
+}
+
+#conversion_funnel > li:after {
+        content: "";
+        display: block;
+        height: 0.4em;
+        background: #fff;
+        width: 100%;
+        }
+
+#conversion_funnel > li:first-child:before { border: 0; }
+.feather {
+    height: 1rem;
+    width: 1rem;
+}
+
+.size-200 {
+    width:200px; 
+    height:200px;
+}

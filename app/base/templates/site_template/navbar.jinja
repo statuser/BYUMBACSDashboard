@@ -1,16 +1,13 @@
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="{{ url_for('base.index') }}">Everest Tracker</a>
-    </button>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-    {% if current_user.is_anonymous %}
-        {{ render_nav_item('util.login', "Login") }}
-    {% else %}
-        <div class="nav-item dropdown">
-            <button class="navbar-toggler" type="button" id="navMenuButton" data-toggle="dropdown" 
-                aria-haspopup="true" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labeledby="navMenuButton">
+<nav class="navbar navbar-light sticky-top flex-nowrap p-0 border-bottom">
+    <div class="nav-item dropdown">
+        <button class="navbar-toggler" type="button" id="navMenuButton" data-toggle="dropdown"
+                arai-haspopup="true" aria-expand="false" aria-label="Toggle More Menu">
+            <i data-feather="more-horizontal"></i> 
+        </button>
+        <div class="dropdown-menu bg-light" aria-labeledby="navMenuButton">
+            {% if current_user.is_anonymous %}
+                {{ render_nav_item('util.login', "Login") }}
+            {% else %}
                 {{ render_nav_item('students.dashboard', 'Student Dashboard') }}
                 {{ render_nav_item('students.edit_profile', 'Student Edit Profile') }}
                 {{ render_nav_item('career_services.dashboard', 'Career Services Dashboard') }}
@@ -19,8 +16,11 @@
                 {{ render_nav_item('students.kpi_reporting', 'Report KPIs') }}
                 {{ render_nav_item('util.change_password', 'Change Password') }}
                 {{ render_nav_item('util.logout', 'Logout') }}
-            </div>
-            
+            {% endif %}
         </div>
-        {% endif %}
+        </div>
+    <input class="form-control me-2" type="text" placeholder="" aria-label="Search">
+    <button class="btn" type="submit"><i data-feather="search"></i></button>
+    <button class="btn" type="submit"><i data-feather="bell"></i></button>
+
 </nav>

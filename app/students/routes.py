@@ -1,7 +1,8 @@
 from flask import render_template, redirect, url_for
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 from app import db
+from app.base.routes import access_forbidden
 from app.base.models import Student, StudentNote
 
 from app.students import blueprint
@@ -35,7 +36,19 @@ def kpi_reporting():
 @blueprint.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template("students/dashboard.jinja", title="Main")
+    # if not current_user.student:
+    #     access_forbidden('You must be a current student to access this page!')
+    student = {
+        'photo' : 'https://slc.byu.edu/sites/saltlakecenter.ce.byu.edu/files/current_students.png',
+        'firstName' : 'Nathan',
+        'lastName' : 'Saguibo',
+        'class' : '2023',
+        'track' : 'Marketing',
+        'mentor' : 'Jon Kent',
+        'interest' : 'Tech'
+    }
+    
+    return render_template("students/dashboard.jinja", student=student, title="Main")
 
 @blueprint.route('/edit_profile')
 @login_required

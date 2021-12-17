@@ -1,0 +1,15 @@
+<div> 
+    <div>
+        <a class="btn" href="{{url_for('students.edit_profile') }}"><i data-feather="edit-2"></i></a>
+    </div>
+
+    <p> <img src="{{ student.photo }}" class="img-circle size-200" alt="Student" ></p>
+
+    <div class="mb-3">
+        <p><b>{{ student.firstName }} {{student.lastName }}</b></p>
+        <p>Class: {{ student.class }}</p>
+        <p>Track: {{ student.track }}</p>
+        <p>Mentor: {{ student.mentor }}</p>
+        <p>Interest: {{student.interest }}</p>               
+    </div>                               
+</div>
