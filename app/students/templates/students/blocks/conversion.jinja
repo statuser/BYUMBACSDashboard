@@ -1,26 +1,22 @@
-<div class="col-sm-5">
-    <div class="mb-3">
-        <p style ="display: flex; justify-content: space-between; padding-top: 60px">
-            <b style="text-align:left">Conversion Rates</b>
-            <span style="font-size: 20px">&#8942;</span>                   
-        </p>
+<div>
+    <div class='section-header'>
+            <h3>Conversion Rates</h3>
+            <i data-feather="more-vertical"></i>
     </div>
 
-    <p> Personalized Conversion Formula </p>
-    <b> A = Formula * Here </b> <br></br>
-    
-    
+    <p> Hover over the pyrchase funnel to see your personalized conversion formula </p>
 
-    <ul id="conversion_funnel">
-        <li style="text-align:center"><br>12</br> Applications</li>
-        <li style="text-align:center"><br>3</br> Mock Interviews</li>
-        <li style="text-align:center"><br>18</br> Interviews</li>
-        <li style="text-align:center"><br>0</br> Offers</li>
-    </ul>
+    <img src="{{ url_for('students.static', filename='ConversionFunnel.png') }}" alt="Conversion Funnel">
 
     <br></br>
 
-    <button type="button" class="btn btn-outline-primary" style="background: #1BC1AC">Week</button>
-    <button type="button" class="btn btn-outline-secondary">Month</button>
-    <button type="button" class="btn btn-outline-success">Fall</button>
+    <div class="vertical-toggle">
+        <input type="radio" name="reportDuration" id="chartWeek" value="week">
+        <label for="chartWeek">Week</label>
+        <input type="radio" name="reportDuration" id="chartMonth" value="month">
+        <label for="chartMonth">Month</label>
+        <input type="radio" name="reportDuration" id="chartYear" value="year">
+        <label for="chartYear">Year</label>
+    </div> 
+
 </div>
