@@ -1,35 +1,17 @@
 {% extends "site_template/base_plain.jinja" %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('students.static', filename='students.css') }}">
+{% endblock styles %}
 
 {% block content %}   
-    <div class="container">
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-            
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <input class="form-control" type="file" id="formFile">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
-                    </div>
-                </div>
-            
-            </div>
-        </div>
-    </div>
 
     <div class="container">
-        <div class="row">            
-            <div class="col order-first"> </div>            
-            
-            <div class="col-sm-4"> 
-                <p style ="display: flex; justify-content: space-between">
-                    <a href="{{url_for('students.dashboard') }}" style="color: Red" style="text-align:left">Cancel</a>
-                    <a href="{{url_for('students.dashboard') }}" style="color: black" style="text-align:right">Done</a>                    
+        <div class="row justify-content-center">            
+            <div class="panel col-sm-4">
+                <p class="d-flex justify-content-between">
+                    <a href="{{url_for('students.dashboard') }}" class="text-danger" style="text-align:left">Cancel</a>
+                    <a href="{{url_for('students.dashboard') }}" class="text-dark" style="text-align:right">Done</a>                    
                 </p>             
                            
                <p style="text-align: center"> 
@@ -39,29 +21,33 @@
                     </a>           
                </p>
 
-               <p style="text-align:center"><a href="{{ url_for('students.edit_profile') }}" style="color: Blue">Edit</a></p>
+               <p class="text-center"><a href="{{ url_for('students.edit_profile') }}">Edit</a></p>
 
                 <div class="mb-3">
-                    <input class="form-control" type="text" placeholder="Nathan Saguibo">                    
+                    <label for="name">Name:</label>
+                    <input id="name" class="form-control" type="text" placeholder="Nathan Saguibo" disabled>                    
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="text" placeholder="Class: 2023"> 
+                    <label for="classYear">Class:</label>
+                    <input id="classYear" class="form-control" type="text" placeholder="2023" disabled> 
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="text" placeholder="Track: Marketing"> 
+                    <label for="track">Track:</label>
+                    <input id="track" class="form-control" type="text" placeholder="Marketing">
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="text" placeholder="Mentor: Jon Kent"> 
+                    <label for="mentor">Mentor:</label>
+                    <input id="mentor" class="form-control" type="text" placeholder="Jon Kent"> 
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="text" placeholder="Interest: Tech"> 
+                    <label for="interest">Interest:</label>
+                    <input id="interest" class="form-control" type="text" placeholder="Tech"> 
                 </div>
                                 
-            </div>
-
-            <div class="col order-last"> </div>          
+            </div>        
         </div>        
         
     </div>    
+            
 
 {% endblock content %}

@@ -1,0 +1,8 @@
+$sizes: 1rem, 2rem, 3rem, 4rem, 5rem, 6rem;
+
+@each $size in $sizes {
+    .size-#{calc($size / 1rem)} {
+        height: $size;
+        width: $size;
+    }
+}

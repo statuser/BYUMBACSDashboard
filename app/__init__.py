@@ -16,6 +16,7 @@ login_manager.login_message = 'Please log in to access this page.'
 bootstrap = Bootstrap()
 mail = Mail()
 
+
 def register_extensions(app):
     db.init_app(app)
     login_manager.init_app(app)

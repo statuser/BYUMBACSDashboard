@@ -1,22 +1,24 @@
-<div>
-    <div class='section-header'>
-            <h3>Conversion Rates</h3>
-            <i data-feather="more-vertical"></i>
+<div class="card-header">
+    Conversion Rates
+    <div class="more">
+        <i data-feather="more-vertical"></i>
     </div>
+</div>
 
+<div class="card-body">
     <p> Hover over the pyrchase funnel to see your personalized conversion formula </p>
 
     <img src="{{ url_for('students.static', filename='ConversionFunnel.png') }}" alt="Conversion Funnel">
 
-    <br></br>
-
-    <div class="vertical-toggle">
-        <input type="radio" name="reportDuration" id="chartWeek" value="week">
-        <label for="chartWeek">Week</label>
-        <input type="radio" name="reportDuration" id="chartMonth" value="month">
-        <label for="chartMonth">Month</label>
-        <input type="radio" name="reportDuration" id="chartYear" value="year">
-        <label for="chartYear">Year</label>
-    </div> 
-
+    <div class="d-flex justify-content-center">
+        <div class="btn-group" role="group" aria-label="Change Time Comparison">
+            <input type="radio" class="btn-check" name="reportDuration" id="chartWeek" value="week">
+            <label class="btn btn-outline-primary" for="chartWeek">Week</label>
+            <input type="radio" class="btn-check" name="reportDuration" id="chartMonth" value="month">
+            <label class="btn btn-outline-primary" for="chartMonth">Month</label>
+            <input type="radio" class="btn-check" name="reportDuration" id="chartYear" value="year">
+            <label class="btn btn-outline-primary" for="chartYear">Year</label>
+        </div>
+    </div>
+    
 </div>

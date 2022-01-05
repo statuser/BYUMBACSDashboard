@@ -1,0 +1,15 @@
+@use 'colors';
+@use '../bootstrap-5.1.3/scss/bootstrap' with (
+    $blue: colors.$blue-default,
+    $red: colors.$red-default,
+    $yellow: colors.$yellow-default,
+    $green: colors.$green-default,
+    $primary:       colors.$blue-default,
+    $secondary:     colors.$gray-default,
+    $success:       colors.$green-default,
+    $info:          colors.$green-light-1,
+    $warning:       colors.$yellow-default,
+    $danger:        colors.$red-default,
+    $light:         colors.$gray-light-5,
+    $dark:          colors.$gray-dark-3
+);

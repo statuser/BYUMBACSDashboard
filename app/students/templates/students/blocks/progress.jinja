@@ -1,13 +1,15 @@
-<div class="col-sm-5">
-    <div class="mb-3">
-        <p style ="display: flex; justify-content: space-between; padding-top: 60px">
-            <b style="text-align:left">Career Progress</b>
-            <span style="font-size: 20px">&#8942;</span>                   
-        </p>
+<div class="card-header">
+    Career Progress
+    <div class="more">
+        <i data-feather="more-vertical"></i>
     </div>
+</div>
 
-    <p> Company </p>
-    <br></br>
+<div class=card-body>
+    <h4> Company </h4>
+    {# {% for company in student.companies %}
+        {% include "_company.html" %}
+    {% endfor %} #}
     <ul class="list-group list-group-flush">
         <li class="list-group-item">Apple</li>
         <li class="list-group-item">Adobe</li>

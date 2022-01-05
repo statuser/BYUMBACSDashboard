@@ -1,30 +1,31 @@
-<div>
-    <div>
-        <div class="section-header">
-            <h3>Comparison</h3>
-            <i data-feather="more-vertical"></i>
-        </div>
-        <form>
-            <select name="comparisons" id="comparisons">
-                <option value="InfoInterview">Info Interviews</option>
-                <option value="Interviews">Interviews</option>
-                <option value="InfoSession">Info Sessions</option>
-                <option value="Offers">Offers</option>
-                <option value="OffersAccepted">Offers Accepted</option>                            
-            </select>
-        </form> 
+<div class="card-header">
+    Comparison
+    <div class="more">
+        <i data-feather="more-vertical"></i>
+    </div>
+</div>
+<div class="card-body">
+    <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="comparisonMenu" data-bs-toggle="dropdown" aria-expanded="false">Comparison</button>
+        <ul class="dropdown-menu" aria-labelledby="comparisonMenu">
+            <li><button class="dropdown-item" type="button">Info Interviews</button></li>
+            <li><button class="dropdown-item" type="button">Interviews</button></li>
+            <li><button class="dropdown-item" type="button">Info Sessions</button></li>
+            <li><button class="dropdown-item" type="button">Offers</button></li>
+            <li><button class="dropdown-item" type="button">Offers Accepted</button></li>
+        </ul>
+    </div>
 
-            </div>
     <div>
         <img src="{{ url_for('students.static', filename='ComparisonChart.png') }}" alt="Comparison Chart">
     </div>
 
-    <div>
-        <input type="radio" name="reportDuration" id="chartWeek" value="week">
-        <label for="chartWeek">Week</label>
-        <input type="radio" name="reportDuration" id="chartMonth" value="month">
-        <label for="chartMonth">Month</label>
-        <input type="radio" name="reportDuration" id="chartYear" value="year">
-        <label for="chartYear">Year</label>
-    </div> 
+    <div class="btn-group" role="group" aria-label="Change Time Comparison">
+        <input type="radio" class="btn-check" name="reportDuration" id="chartWeek" value="week">
+        <label class="btn btn-outline-primary" for="chartWeek">Week</label>
+        <input type="radio" class="btn-check" name="reportDuration" id="chartMonth" value="month">
+        <label class="btn btn-outline-primary" for="chartMonth">Month</label>
+        <input type="radio" class="btn-check" name="reportDuration" id="chartYear" value="year">
+        <label class="btn btn-outline-primary" for="chartYear">Year</label>
+    </div>
 </div>

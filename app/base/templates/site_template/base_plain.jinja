@@ -5,7 +5,7 @@
         {% include "site_template/navbar.jinja" %}
     {% endblock %}
     
-    <div class="container-fluid">
+    <div class="container-md">
         <div class="row">
     
             {% block messages %}
@@ -13,7 +13,7 @@
             {% endblock %}
         </div>
         
-        <main role="main" class="row flex-fill justify-content-center">
+        <main role="main" class="flex-fill justify-content-center">
             {% block content %}
             {% endblock content %}
         </main>

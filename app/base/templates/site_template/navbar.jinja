@@ -1,8 +1,8 @@
-<nav class="navbar navbar-light sticky-top flex-nowrap p-0 border-bottom">
-    <div class="nav-item dropdown">
-        <button class="navbar-toggler" type="button" id="navMenuButton" data-toggle="dropdown"
-                arai-haspopup="true" aria-expand="false" aria-label="Toggle More Menu">
-            <i data-feather="more-horizontal"></i> 
+<nav class="navbar navbar-light sticky-top flex-nowrap p-0 bg-light border-bottom">
+    <div class="nav-item dropdown ms-1">
+        <button class="navbar-toggler" type="button" id="navMenuButton" data-bs-toggle="dropdown"
+                data-bs-target="#navMenu" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle More Menu">
+            <i data-feather="more-horizontal" class="nav-icon"></i> 
         </button>
         <div class="dropdown-menu bg-light" aria-labeledby="navMenuButton">
             {% if current_user.is_anonymous %}
@@ -19,8 +19,8 @@
             {% endif %}
         </div>
         </div>
-    <input class="form-control me-2" type="text" placeholder="" aria-label="Search">
-    <button class="btn" type="submit"><i data-feather="search"></i></button>
-    <button class="btn" type="submit"><i data-feather="bell"></i></button>
+    <input class="form-control m-2 p-1" type="text" placeholder="" aria-label="Search">
+    <button class="btn" type="submit"><i data-feather="search" class="nav-icon"></i></button>
+    <button class="btn" type="submit"><i data-feather="bell" class="nav-icon"></i></button>
 
 </nav>

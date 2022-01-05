@@ -1,0 +1,88 @@
+// Gray Colors
+$gray-default: #b2b7bb;
+$gray-dark-3: mix(black,$gray-default, 60%);
+$gray-dark-2: mix(black,$gray-default, 40%);
+$gray-dark-1: mix(black,$gray-default, 20%);
+
+$gray-light-1: mix(white,$gray-default, 20%);
+$gray-light-2: mix(white,$gray-default, 40%);
+$gray-light-3: mix(white,$gray-default, 60%);
+$gray-light-4: mix(white,$gray-default, 80%);
+$gray-light-5: mix(white, $gray-default, 90%);
+
+
+//Green Colors
+$green-default: #1ac0ac;
+
+$green-dark-3: mix(black, $green-default, 60%);
+$green-dark-2: mix(black,$green-default, 40%);
+$green-dark-1: mix(black,$green-default, 20%);
+
+$green-light-1: mix(white, $green-default, 20%);
+$green-light-2: mix(white,$green-default, 40%);
+$green-light-3: mix(white,$green-default, 60%);
+$green-light-4: mix(white,$green-default, 80%);
+$green-light-5: mix(white,$green-default, 90%);
+
+$green-colors: (
+    "green" : $green-default,
+    "green-dark-3": $green-dark-3,
+    "green-dark-2": $green-dark-2,
+    "green-dark-1": $green-dark-1,
+    "green-light-1": $green-light-1,
+    "green-light-2": $green-light-2,
+    "green-light-3": $green-light-3,
+    "green-light-4": $green-light-4,
+    "green-light-5": $green-light-5
+);
+
+//Blue Colors
+$blue-default: #4cb1ce;
+$blue-dark-3: mix(black,$blue-default, 60%);
+$blue-dark-2: mix(black,$blue-default, 40%);
+$blue-dark-1: mix(black,$blue-default, 20%);
+$blue-light-1: mix(white,$blue-default, 20%);
+$blue-light-2: mix(white,$blue-default, 40%);
+$blue-light-3: mix(white,$blue-default, 60%);
+$blue-light-4: mix(white,$blue-default, 80%);
+$blue-light-5: mix(white,$blue-default, 90%);
+
+$blue-colors: (
+    "blue" : $blue-default,
+    "blue-dark-3": $blue-dark-3,
+    "blue-dark-2": $blue-dark-2,
+    "blue-dark-1": $blue-dark-1,
+    "blue-light-1": $blue-light-1,
+    "blue-light-2": $blue-light-2,
+    "blue-light-3": $blue-light-3,
+    "blue-light-4": $blue-light-4,
+    "blue-light-5": $blue-light-5
+);
+
+
+//Yellow Colors
+$yellow-default: #efc470;
+$yellow-dark-3: mix(black,$yellow-default, 60%);
+$yellow-dark-2: mix(black,$yellow-default, 40%);
+$yellow-dark-1: mix(black,$yellow-default, 20%);
+$yellow-light-1: mix(white,$yellow-default, 20%);
+$yellow-light-2: mix(white,$yellow-default, 40%);
+$yellow-light-3: mix(white,$yellow-default, 60%);
+$yellow-light-4: mix(white,$yellow-default, 80%);
+$yellow-light-5: mix(white,$yellow-default, 90%);
+
+$yellow-colors: (
+    "yellow" : $yellow-default,
+    "yellow-dark-3": $yellow-dark-3,
+    "yellow-dark-2": $yellow-dark-2,
+    "yellow-dark-1": $yellow-dark-1,
+    "yellow-light-1": $yellow-light-1,
+    "yellow-light-2": $yellow-light-2,
+    "yellow-light-3": $yellow-light-3,
+    "yellow-light-4": $yellow-light-4,
+    "yellow-light-5": $yellow-light-5
+);
+
+$red-default: #e94622;
+$overlay: $gray-default;
+

@@ -1,0 +1,101 @@
+@use "common";
+
+body {
+    background-color: common.$light;
+}
+
+.upper-left {
+    position: absolute;
+    width: fit-content;
+    right: 0rem;
+    top: 0;
+}
+
+h5 {
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+dl {
+    
+    font-size: 1rem;
+
+    dt {
+        display: inline-block;
+        padding: .2rem 0;
+    }
+
+    dd {
+        display: inline;
+
+        &::after {
+            content: "";
+            display: block;
+        }
+    }
+}
+
+.panel {
+    background-color: common.$white;
+    word-wrap: break-word;
+    min-width: 10rem;
+    background-clip: border-box;
+    border: 1px solid common.$gray-light-2;
+    border-radius: 0.25rem;
+    
+
+    .card-header {
+
+        font-size: 1.25rem;
+        font-weight: 600;
+    
+        .more {
+            float: right;
+        }
+    
+    }
+    
+}
+
+#profile {
+    position: relative;
+    padding: 1.25rem;
+}
+
+
+// STYLE CARD
+
+
+#conversion_funnel { 
+    position: relative; 
+    overflow: hidden; 
+    font: 14px Arial; 
+    margin: 0; padding: 0; 
+    list-style: none; 
+    text-align: center; 
+}
+
+
+#conversion_funnel:before { 
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    margin-left: -120px;
+    width: 0;
+    border-top: 800px solid #D1F3EF;
+    border-left: 120px solid #fff;
+    border-right: 120px solid #fff;
+}
+
+#conversion_funnel > li:after {
+        content: "";
+        display: block;
+        height: 0.4em;
+        background: #fff;
+        width: 100%;
+        }
+
+#conversion_funnel > li:first-child:before { 
+    border: 0; 
+}
