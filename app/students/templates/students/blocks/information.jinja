@@ -1,5 +1,5 @@
 <div class="row">
-    <a href="{{url_for('students.edit_profile') }}" class="btn upper-left"><i data-feather="edit-2" class="size-1"></i></a>
+    <a href="{{url_for('students.edit_profile', studentId=student.id) }}" class="btn upper-left"><i data-feather="edit-2" class="size-1"></i></a>
     <p><img src="{{ student.photo }}" alt="Student Photo" class="img-circle card-img-top"></p>
     <div class="mb-3">
         <h5>{{ student.firstName }} {{student.lastName }}</h5>

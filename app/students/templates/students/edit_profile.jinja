@@ -1,4 +1,6 @@
 {% extends "site_template/base_plain.jinja" %}
+{% from "bootstrap/form.html" import render_form %}
+
 {% block styles %}
     {{ super() }}
     <link rel="stylesheet" href="{{ url_for('students.static', filename='students.css') }}">
@@ -16,7 +18,7 @@
                            
                <p style="text-align: center"> 
                     <a data-toggle="modal" href="#myModal">
-                        <img src="https://slc.byu.edu/sites/saltlakecenter.ce.byu.edu/files/current_students.png" class="img-circle" alt="Student" 
+                        <img src="{{ form.profileImage }}" class="img-circle" alt="Student" 
                         style="width:200px; height:200px;">    
                     </a>           
                </p>
@@ -25,29 +27,31 @@
 
                 <div class="mb-3">
                     <label for="name">Name:</label>
-                    <input id="name" class="form-control" type="text" placeholder="Nathan Saguibo" disabled>                    
+                    <input id="name" class="form-control" type="text" placeholder="{{ form.firstName }} {{ form.lastName}}" disabled>                    
                 </div>
                 <div class="mb-3">
                     <label for="classYear">Class:</label>
-                    <input id="classYear" class="form-control" type="text" placeholder="2023" disabled> 
+                    <input id="classYear" class="form-control" type="text" placeholder="{{ form.classYear }}" disabled> 
                 </div>
                 <div class="mb-3">
                     <label for="track">Track:</label>
-                    <input id="track" class="form-control" type="text" placeholder="Marketing">
+                    <input id="track" class="form-control" type="text" placeholder="{{ form.track }}">
                 </div>
                 <div class="mb-3">
                     <label for="mentor">Mentor:</label>
-                    <input id="mentor" class="form-control" type="text" placeholder="Jon Kent"> 
+                    <input id="mentor" class="form-control" type="text" placeholder="{{ form.mentor }}"> 
                 </div>
                 <div class="mb-3">
                     <label for="interest">Interest:</label>
-                    <input id="interest" class="form-control" type="text" placeholder="Tech"> 
+                    <input id="interest" class="form-control" type="text" placeholder="{{ form.interest }}"> 
                 </div>
                                 
             </div>        
         </div>        
         
-    </div>    
+    </div>
+
+    {% render_form(form) %}  
             
 
 {% endblock content %}

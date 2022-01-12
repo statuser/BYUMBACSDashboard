@@ -1,0 +1,61 @@
+{% extends "site_template/base_plain.jinja" %}
+
+{% block content %}
+    <h1>Add New Student</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <table>
+            <tr>
+                <td>{{ form.firstName.label }}:</td>
+                <td>{{ form.firstName(size=32) }}</td>
+                {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>{{ form.lastName.label }}:</td>
+                <td>{{ form.lastName(size=32) }}</td>
+                {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>{{ form.classYear.label }}:</td>
+                <td>{{form.classYear(size=4) }}</td>
+                {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>{{ form.track.label }}:</td>
+                <td>{{ form.track(size=32) }}</td>
+                {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>{{ form.mentor.label }}:</td>
+                <td>{{ form.mentor(size=64) }}</td>
+                {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>{{ form.interest.label }}:</td>
+                <td>{{ form.interest(size=32) }}</td>
+                {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>{{ form.profileImage.label }}:</td>
+                <td>{{ form.profileImage(size=64) }}</td>
+                {% for error in errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </tr>
+        </table>
+        <p>
+            {{ form.submit() }}
+        </p>
+{% endblock content %}  

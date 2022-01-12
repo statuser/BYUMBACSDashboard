@@ -13,7 +13,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
-    student = db.relationship('Student', backref='user', lazy=True)
+    student = db.relationship('Student', back_populates='user', uselist=False)
     
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -55,6 +55,12 @@ class Student(db.Model):
     studentEmail = db.Column(db.String(128))
     phone = db.Column(db.String(16))
     classYear = db.Column(db.String(4))
+    track = db.Column(db.String(128))
+    mentor = db.Column(db.String(128))
+    interest = db.Column(db.String(128))
+    profileImagePath = db.Column(db.String(256))
+    
+    
     linkedIn = db.Column(db.String(128))
     intent = db.Column(db.String(128))
     attitude = db.Column(db.String(128))
@@ -63,6 +69,8 @@ class Student(db.Model):
     jobStatus = db.Column(db.String(64))
     createdDate = db.Column(db.DateTime)
     userID = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user = relationship('User', back_populates='student')
+    
     lampList = db.relationship('LampList', backref='student', lazy=True)
     resume = db.relationship('Resume', backref='student', lazy=True)
     education = db.relationship('Education', backref='student', lazy = True)

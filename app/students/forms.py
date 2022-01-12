@@ -1,6 +1,8 @@
+import re
 from flask_wtf import FlaskForm
 from wtforms import StringField, RadioField, SelectField, \
     FileField, IntegerField, SubmitField
+from wtforms import validators
 from wtforms.validators import DataRequired, Email, NumberRange
 
 class IntakeSurvey(FlaskForm):
@@ -149,4 +151,17 @@ class KPIForm(FlaskForm):
     #---------------------- END FEEDBACK BLOCK -----------------------
     submit = SubmitField('Submit KPIs')
     
-   
+
+class EditStudentProfileForm(FlaskForm):
+    firstName = StringField('First Name')
+    lastName = StringField('Last Name')
+    classYear = IntegerField('Class Year')
+    track = StringField('Track')
+    mentor = StringField('Mentor')
+    interest = StringField('Interest')
+    profileImage = FileField('Profile Image', validators = []) #validators.regexp('^[^/\\\]\\.jpg$')
+    submit = SubmitField('Save Changes')
+    
+    def validate_image(form, field):
+        if field.data:
+            field.data = re.sub(r'[^a-z0-9_.-]', '_', field.data)
