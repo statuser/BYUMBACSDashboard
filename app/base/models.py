@@ -3,6 +3,7 @@ from time import time
 from flask import current_app
 from flask_login.login_manager import LoginManager
 from sqlalchemy.orm import relationship
+from sqlalchemy import event
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from app import db, login_manager
@@ -12,7 +13,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True, nullable=False)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
+    role = db.Column(db.Integer, db.ForeignKey('roles.id'))
     student = db.relationship('Student', back_populates='user', uselist=False)
     
     def set_password(self, password):
@@ -37,22 +38,30 @@ class User(UserMixin, db.Model):
     
     def __repr__(self) -> str:
         return f'<User {self.username}>'
-    
+
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
 class Roles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(15), index=True, unique=True)
     role_members = db.relationship("User", backref="role", lazy=True)
+
+@event.listens_for(Roles.__table__, 'after_create')
+def create_roles(*args, **kwargs):
+    db.session.add(Roles(name='Admin'))
+    db.session.add(Roles(name='Student'))
+    db.session.add(Roles(name='CareerServices'))
+    db.session.add(Roles(name='OtherObserver'))
+    db.session.commit()
     
-@login_manager.user_loader
-def load_user(id):
-    return User.query.get(int(id))
 
 class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     firstName = db.Column(db.String(128))
     middleName = db.Column(db.String(128))
     lastName = db.Column(db.String(128))
-    studentEmail = db.Column(db.String(128))
     phone = db.Column(db.String(16))
     classYear = db.Column(db.String(4))
     track = db.Column(db.String(128))
@@ -68,7 +77,7 @@ class Student(db.Model):
     lastUpdate = db.Column(db.DateTime)
     jobStatus = db.Column(db.String(64))
     createdDate = db.Column(db.DateTime)
-    userID = db.Column(db.Integer, db.ForeignKey('user.id'))
+    
     user = relationship('User', back_populates='student')
     
     lampList = db.relationship('LampList', backref='student', lazy=True)

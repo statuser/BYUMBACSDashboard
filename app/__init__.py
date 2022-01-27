@@ -7,9 +7,20 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
+from sqlalchemy import MetaData
 from config import Config
 
-db = SQLAlchemy()
+convention = {
+    "ix": 'ix_%(column_0_label)s',
+    "uq": "uq_%(table_name)s_%(column_0_name)s",
+    "ck": "ck_%(table_name)s_%(constraint_name)s",
+    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
+    "pk": "pk_%(table_name)s"
+}
+
+metadata = MetaData(naming_convention=convention)
+
+db = SQLAlchemy(metadata=metadata)
 login_manager = LoginManager()
 login_manager.login_view = 'util.login'
 login_manager.login_message = 'Please log in to access this page.'
@@ -18,6 +29,9 @@ mail = Mail()
 
 
 def register_extensions(app):
+    
+
+    
     db.init_app(app)
     login_manager.init_app(app)
     bootstrap.init_app(app)

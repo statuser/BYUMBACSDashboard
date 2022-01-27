@@ -3,7 +3,7 @@ from sys import exit
 from flask_migrate import Migrate
 from config import config_dict
 from app import create_app, db
-from app.base.models import User, Roles
+from app.base.models import User, Roles, Student
 
 
 get_config_mode = environ.get('CONFIG_MODE', 'Debug')
@@ -18,4 +18,6 @@ Migrate(app, db, render_as_batch=True)
 
 @app.shell_context_processor
 def make_shell_context():
-    return {'db': db, 'User': User, 'Role': Roles}
+    return {'db': db, 'User': User, 'Role': Roles, 'Student': Student}
+
+
