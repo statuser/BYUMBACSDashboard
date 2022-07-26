@@ -3,17 +3,19 @@ from time import time
 from flask import current_app
 from flask_login.login_manager import LoginManager
 from sqlalchemy.orm import relationship
-from sqlalchemy import event
+from sqlalchemy import ForeignKey, event
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from app import db, login_manager
 
 class User(UserMixin, db.Model):
+    __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True, nullable=False)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    role = db.Column(db.Integer, db.ForeignKey('roles.id'))
+    role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
+    role = db.relationship('Roles', back_populates='role_members')
     student = db.relationship('Student', back_populates='user', uselist=False)
     
     def set_password(self, password):
@@ -44,9 +46,13 @@ def load_user(id):
     return User.query.get(int(id))
 
 class Roles(db.Model):
+    __tablename__ = 'roles'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(15), index=True, unique=True)
-    role_members = db.relationship("User", backref="role", lazy=True)
+    role_members = db.relationship("User", back_populates="role")
+    
+    def __repr(self) -> str:
+        return f'<Roles {self.name}>'
 
 @event.listens_for(Roles.__table__, 'after_create')
 def create_roles(*args, **kwargs):
@@ -58,7 +64,12 @@ def create_roles(*args, **kwargs):
     
 
 class Student(db.Model):
+    __tablename__ = 'student'
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user = relationship('User', back_populates='student')
+    
+    
     firstName = db.Column(db.String(128))
     middleName = db.Column(db.String(128))
     lastName = db.Column(db.String(128))
@@ -78,7 +89,7 @@ class Student(db.Model):
     jobStatus = db.Column(db.String(64))
     createdDate = db.Column(db.DateTime)
     
-    user = relationship('User', back_populates='student')
+    
     
     lampList = db.relationship('LampList', backref='student', lazy=True)
     resume = db.relationship('Resume', backref='student', lazy=True)

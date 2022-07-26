@@ -18,6 +18,6 @@ Migrate(app, db, render_as_batch=True)
 
 @app.shell_context_processor
 def make_shell_context():
-    return {'db': db, 'User': User, 'Role': Roles, 'Student': Student}
+    return {'db': db, 'User': User, 'Roles': Roles, 'Student': Student}
 
 

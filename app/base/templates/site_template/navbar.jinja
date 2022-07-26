@@ -8,6 +8,7 @@
             {% if current_user.is_anonymous %}
                 {{ render_nav_item('util.login', "Login") }}
             {% else %}
+                {{ render_nav_item('students.create_student', 'Create New Student') }}
                 {{ render_nav_item('students.dashboard', 'Student Dashboard') }}
                 {{ render_nav_item('students.edit_profile', 'Student Edit Profile') }}
                 {{ render_nav_item('career_services.dashboard', 'Career Services Dashboard') }}

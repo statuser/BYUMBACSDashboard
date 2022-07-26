@@ -1,9 +1,10 @@
 import re
+from typing import Optional
 from flask_wtf import FlaskForm
 from wtforms import StringField, RadioField, SelectField, \
     FileField, IntegerField, SubmitField
 from wtforms import validators
-from wtforms.validators import DataRequired, Email, NumberRange
+from wtforms.validators import DataRequired, Email, NumberRange, Optional
 
 class IntakeSurvey(FlaskForm):
     firstName = StringField('First Name', validators=[DataRequired()])
@@ -153,9 +154,11 @@ class KPIForm(FlaskForm):
     
 
 class EditStudentProfileForm(FlaskForm):
-    firstName = StringField('First Name')
-    lastName = StringField('Last Name')
-    classYear = IntegerField('Class Year')
+    netID = StringField('NetId', validators=[DataRequired()])
+    firstName = StringField('First Name', validators=[DataRequired()])
+    lastName = StringField('Last Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[Email()])
+    classYear = IntegerField('Class Year', validators=[Optional()])
     track = StringField('Track')
     mentor = StringField('Mentor')
     interest = StringField('Interest')

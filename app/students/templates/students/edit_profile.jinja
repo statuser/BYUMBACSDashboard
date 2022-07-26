@@ -9,49 +9,48 @@
 {% block content %}   
 
     <div class="container">
-        <div class="row justify-content-center">            
+        <div class="row justify-content-center">
             <div class="panel col-sm-4">
-                <p class="d-flex justify-content-between">
-                    <a href="{{url_for('students.dashboard') }}" class="text-danger" style="text-align:left">Cancel</a>
-                    <a href="{{url_for('students.dashboard') }}" class="text-dark" style="text-align:right">Done</a>                    
-                </p>             
-                           
-               <p style="text-align: center"> 
-                    <a data-toggle="modal" href="#myModal">
-                        <img src="{{ form.profileImage }}" class="img-circle" alt="Student" 
-                        style="width:200px; height:200px;">    
-                    </a>           
-               </p>
+                <form action method="post" class="form" enctype="multipart/form-data" role="form">
+                    <p class="d-flex justify-content-between">
+                        <a href="{{url_for('students.dashboard') }}" class="text-danger text-left btn btn-link btn-md">Cancel</a>
+                        <input type="submit" id="done" name="submit" class="text-dark text-right btn btn-link btn-md" value="Done">                    
+                    </p>             
+                            
+                <p style="text-align: center"> 
+                        <a data-toggle="modal" href="#myModal">
+                            <img src="{{ form.profileImage.data }}" class="img-circle" alt="Student Profile Picture" 
+                            style="width:200px; height:200px;">    
+                        </a>           
+                </p>
 
-               <p class="text-center"><a href="{{ url_for('students.edit_profile') }}">Edit</a></p>
+                <p class="text-center"><a href="#">Edit <!-- Insert Modal to upload new image --></a></p>
 
-                <div class="mb-3">
-                    <label for="name">Name:</label>
-                    <input id="name" class="form-control" type="text" placeholder="{{ form.firstName }} {{ form.lastName}}" disabled>                    
-                </div>
-                <div class="mb-3">
-                    <label for="classYear">Class:</label>
-                    <input id="classYear" class="form-control" type="text" placeholder="{{ form.classYear }}" disabled> 
-                </div>
-                <div class="mb-3">
-                    <label for="track">Track:</label>
-                    <input id="track" class="form-control" type="text" placeholder="{{ form.track }}">
-                </div>
-                <div class="mb-3">
-                    <label for="mentor">Mentor:</label>
-                    <input id="mentor" class="form-control" type="text" placeholder="{{ form.mentor }}"> 
-                </div>
-                <div class="mb-3">
-                    <label for="interest">Interest:</label>
-                    <input id="interest" class="form-control" type="text" placeholder="{{ form.interest }}"> 
-                </div>
-                                
-            </div>        
+                    <div class="mb-3">
+                        <label for="name">Name:</label>
+                        <input id="name" class="form-control" type="text" placeholder="{{ form.firstName.data }} {{ form.lastName.data }}" disabled>                    
+                    </div>
+                    <div class="mb-3">
+                        <label for="classYear">Class:</label>
+                        <input id="classYear" class="form-control" type="text" placeholder="{{ form.classYear.data }}" disabled> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="track">Track:</label>
+                        <input id="track" class="form-control" type="text" placeholder="{{ form.track.data }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="mentor">Mentor:</label>
+                        <input id="mentor" class="form-control" type="text" placeholder="{{ form.mentor.data }}"> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="interest">Interest:</label>
+                        <input id="interest" class="form-control" type="text" placeholder="{{ form.interest.data }}"> 
+                    </div>
+                </form>                        
+            </div>
         </div>        
         
     </div>
-
-    {% render_form(form) %}  
-            
+    {{ render_form(form) }}
 
 {% endblock content %}
